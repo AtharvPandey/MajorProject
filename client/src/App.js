@@ -68,9 +68,10 @@ function App() {
 
   return (
     <>
+      {/* Access Button  */}
       {!modalOpen && (
         <button className="share" onClick={() => setModalOpen(true)}>
-          Share
+          Share Access
         </button>
       )}
       {modalOpen && (
@@ -78,23 +79,28 @@ function App() {
       )}
 
       <div className="App">
-        <h1 style={{ color: "white" }}>Medical Image Management</h1>
+        <div className="nav-bar">
+          <h1 style={{ color: "white" }}>Medical Image Management</h1>
+        </div>
+
         <div className="bg"></div>
         <div className="bg bg2"></div>
         <div className="bg bg3"></div>
 
-        <p style={{ color: "white" }}>
+        <p style={{ color: "white", fontSize: "18px" }}>
           Account: {account ? account : "Not connected"}
         </p>
+
         <FileUpload
           account={account}
           provider={provider}
           contract={contract}
         ></FileUpload>
+
         <Display contract={contract} account={account}></Display>
 
-        {/* Add a button to trigger the sample function */}
-        <button onClick={sampleFunction}>Call Sample Function</button>
+        {/* Add a button to trigger the sample function
+        <button onClick={sampleFunction}>Call Sample Function</button> */}
       </div>
     </>
   );
